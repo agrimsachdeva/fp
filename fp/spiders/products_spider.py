@@ -27,6 +27,10 @@ class ProductsSpider(scrapy.Spider):
 
     def parse_product(self, response):
         
+        productid = response.css('meta[itemprop=productID]').get() 
+        brand = response.css('meta[itemprop=brand]').get() 
+        name = response.css('meta[itemprop=name]').get() 
+
         price = response.css('.price *::text').getall() 
         price_string = (' ').join(price) 
 
@@ -40,6 +44,9 @@ class ProductsSpider(scrapy.Spider):
         heart = response.css('i.fa-heart-o + sup ::text').get()
 
         yield {
+            'productid': productid,
+            'brand': brand,
+            'name': name,
             'price': price_string,
             'details': details_string,
             'condition': condition_string,
