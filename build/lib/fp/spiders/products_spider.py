@@ -11,7 +11,7 @@ class ProductsSpider(scrapy.Spider):
 
         # follow links to product pages
         pattern = r'\bvar\s+bootstrappedShopResults\s*=\s*(\{.*?\})\s*;\s*\n'
-        json_data = response.xpath('/html/body/div[3]/script[1]/text()').re_first(pattern, replace_entities=False)
+        json_data = response.xpath('/html/body/div[3]/script[1]/text()').re_first(pattern)
         j = json.loads(json_data)
 
         products = j['products']
