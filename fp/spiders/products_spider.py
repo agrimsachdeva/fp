@@ -14,6 +14,12 @@ class ProductsSpider(scrapy.Spider):
         json_data = response.xpath('/html/body/div[3]/script[1]/text()').re_first(pattern, replace_entities=False)
         j = json.loads(json_data)
 
+        total = j['meta']['total'] 
+
+         # set custom stats for the crawler
+        self.crawler.stats.set_value('total_products_scraped', total)
+
+
         products = j['products']
 
         prodHtml = HtmlResponse(url="HTML string", body=products, encoding='utf-8')

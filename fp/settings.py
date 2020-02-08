@@ -22,7 +22,7 @@ NEWSPIDER_MODULE = 'fp.spiders'
 ROBOTSTXT_OBEY = True
 
 FEED_FORMAT = 'jsonlines'
-FEED_URI = "products%(time).json"
+FEED_URI = "/home/sachdeva_agrim/data/products%(time)s.json"
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -67,9 +67,9 @@ FEED_URI = "products%(time).json"
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'fp.pipelines.FpPipeline': 300,
-#}
+ITEM_PIPELINES = {
+   'fp.pipelines.FpPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
