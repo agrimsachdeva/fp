@@ -22,4 +22,4 @@ class FpPipeline(object):
         body = intro + body
 
         mailer = MailSender()
-        mailer.send(to=["agsach@iu.edu, jjzhang@indiana.edu"], subject="Fashionphile Scrapy Stats", body="Some body")
+        mailer.send(to=["agsach@iu.edu, jjzhang@indiana.edu"], subject=subject, body=body)
