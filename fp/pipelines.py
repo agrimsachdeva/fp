@@ -16,10 +16,10 @@ class FpPipeline(object):
     def close_spider(self, spider):
 
         subject = 'Fashionphile Scraper:' + datetime.date.today().strftime("%m/%d/%y")
-        intro = "Summary stats from Scrapy spider and total products scraped: \n\n"
+        intro = "Summary stats from spider and total products scraped: \n\n"
         body = spider.crawler.stats.get_stats()
         body = pprint.pformat(body)
         body = intro + body
 
         mailer = MailSender()
-        mailer.send(to=["agsach@iu.edu, jjzhang@indiana.edu"], subject=subject, body=body)
+        mailer.send(to=["sachdeva.agrim@gmail.com"], subject=subject, body=body)

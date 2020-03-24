@@ -46,6 +46,9 @@ class ProductsSpider(scrapy.Spider):
         condition = response.css('#tabCondition *::text').getall() 
         condition_string = (' ').join(condition) 
 
+        categories = response.css('.product ol li *::text').getall()
+        category_string = " , ".join(categories) 
+
         cart = response.css('i.fa-shopping-bag + sup ::text').get()
         heart = response.css('i.fa-heart-o + sup ::text').get()
 
@@ -56,6 +59,7 @@ class ProductsSpider(scrapy.Spider):
             'price': price_string,
             'details': details_string,
             'condition': condition_string,
+            'category' : category_string,
             'cart': cart,
             'heart': heart
         }
